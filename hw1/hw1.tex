@@ -1,0 +1,289 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=R,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Hw1} % Assignment title
+\newcommand{\hmwkDueDate}{July 24,\ 2014} % Due date
+\newcommand{\hmwkClass}{Probability and Elements of Real Analysis} % Course/class
+\newcommand{\hmwkClassTime}{} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Instructor: Elena} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Weiyi Chen} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    According to the countable additivity of definition 1.1.2, let
+    \begin{equation}
+        \begin{split}
+            A_1 &= \Omega \\
+            A_n &= \phi \text{ for } n \in Z^+/\{1\}
+        \end{split}
+    \end{equation}
+    then
+    \begin{equation}
+        P(\Omega) = P(\bigcup_{n=1}^{\infty} A_n) = \sum_{n=1}^{\infty} P(A_n) = P(\Omega) + \sum_{n=2}^{\infty} P(A_n)
+    \end{equation}
+    Therefore we have $\sum_{n=2}^{\infty} P(A_n) = 0$ which implies $P(\phi) = 0$ since probability is always non-negative. \\
+    Using this proposition and countable additivity again, let
+    \begin{equation}
+        A_n = \phi \text{ for } n \in Z^+/\{1, 2, 3, ..., k\}
+    \end{equation}
+    We derive the finite additivity as
+    \begin{equation}
+        P(\bigcup_{n=1}^{k} A_n) = P(\bigcup_{n=1}^{\infty} A_n) = \sum_{n=1}^{\infty} P(A_n) = \sum_{n=1}^{k} P(A_n)
+    \end{equation}
+    \begin{homeworkSection}{(i)}
+        We apply finite additivity to prove this problem,
+        \begin{equation}
+            P(B) = P((B - A) \cup A) = P(B - A) + P(A) \ge P(A).
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        Using the conclusion of part (i), since $A \subset A_n$, then
+        \begin{equation}
+            P(A) \le P(A_n)~\forall n \in Z^+
+        \end{equation}
+        Therefore
+        \begin{equation}
+            P(A) \le \lim_{n \to \infty}{P(A_n)} = 0 \Rightarrow P(A) = 0
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    First we construct a uniformly distributed random variable taking values in [0,1] and defined on infinite coin-space $\Omega_{\infty}$, as the way Example 1.2.5 did. According to the assumption of this problem, the probability for head on each toss is $p = \frac{1}{2}$. For $n \in Z^+$,
+    \begin{equation}
+        Y_n(\omega) := 
+        \begin{cases}
+            1 &\text{ if } \omega_n = H \\
+            0 &\text{ if } \omega_n = T
+        \end{cases}      
+    \end{equation}
+    We set
+    \begin{equation}
+        X = \sum_{n=1}^{\infty} \frac{Y_n}{2^n}
+    \end{equation}
+    In terms of the distribution measure $\mu_X$ of X, we write it as
+    \begin{equation}
+        \mu_X[\frac{k}{2^n}, \frac{k+1}{2^n}] = \frac{1}{2^n}
+    \end{equation}
+    for all k and n are integers such that $0 \le k \le 2^n - 1$. It can be shown that
+    \begin{equation}
+        \mu_X[a,b] = b - a
+    \end{equation}
+    for $0 \le a \le b \le 1$. That is, the distribution of X is uniform on [0,1].
+    \begin{homeworkSection}{(i)}
+        We consider cdf of normal distribution,
+        \begin{equation}
+            N(x) = \int_{-\infty}^{x} \frac{1}{\sqrt{2\pi}} e^{-\frac{\xi^2}{2}} d\xi
+        \end{equation}
+        We construct random variable $Z$ as $Z = N^{-1}(X)$, then
+        \begin{equation}
+           P(Z \le a) = P(X \le N(a)) = N(a)
+        \end{equation}
+        for any real number a. That is, $Z$ is a standard normal random variable on the coin-toss space $(\Omega_{\infty}, \cal{F}_{\infty}, P)$.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        We define $Z$ as
+        \begin{equation}
+            Z := N^{-1}(X)
+        \end{equation}
+        Then
+        \begin{equation}
+            \lim_{n \to \infty} Z_n(\omega) = \lim_{n \to \infty} N^{-1}(X_n(\omega)) = N^{-1}(\lim_{n \to \infty}X_n(\omega)) = N^{-1}(X(\omega)) = Z(\omega)
+        \end{equation}
+        for every $\omega \in \Omega_{\infty}$. Therefore $\{Z_n\}_{n=1}^{\infty}$ is the expected sequence.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 3
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    To derive the smallest algebra contains the union of the two given algebra $\cal{F_1} = {\phi, U, U^c, \Omega}$ and $\cal{F_2} = {\phi, V, V^c, \Omega}$, we need to generate all the atoms. An atom of $\cal{F}$ is a set $A \in \cal{F}$ such that the only subsets of A which are also in $\cal{F}$ are the empty set $\phi$ and A itself. \\
+    Therefore in our problem, we have four atoms at most, which are
+    \begin{equation}
+        A_1 = U \cap V^c, A_2 = V \cap U^c, A_3 = U \cap V, A_4 = U^c \cap V^c 
+    \end{equation}
+    This can be easily observed from a Wayne Figure. In general the smallest algebra is just the power set of these four sets, that is
+    \begin{equation}
+        \begin{split}
+            \cal{F} = \{&\phi, \\
+            &A_1, A_2, A_3, A_4, \\
+            &A_1 \cup A_2, A_1 \cup A_3, A_1 \cup A_4, A_2 \cup A_3, A_2 \cup A_4, A_3 \cup A_4, \\
+            &A_1 \cup A_2 \cup A_3, A_1 \cup A_2 \cup A_4, A_1 \cup A_3 \cup A_4, A_2 \cup A_3 \cup A_4, \\
+            &\Omega\}
+        \end{split}
+    \end{equation}
+    But above is the most general case, which implies that $U \cap V \neq \phi$ and $U \cup V \neq \Omega$. There are 3 more cases,
+    \begin{itemize}
+        \item $U \cap V \neq \phi$ and $U \cup V = \Omega$ \\
+        3 atoms: $A_1 = U \cap V^c, A_2 = V \cap U^c, A_3 = U \cap V$ \\
+        $2^3 = 8$ elements: $\cal{F}$ $= \{\phi, A_1, A_2, A_3, A_1 \cup A_2, A_1 \cup A_3, A_2 \cup A_3, \Omega\}$
+        \item $U \cap V = \phi$ and $U \cup V \neq \Omega$
+        3 atoms: $A_1 = U, A_2 = V, A_3 = U^c \cap V^c$ \\
+        $2^3 = 8$ elements: $\cal{F}$ $= \{\phi, A_1, A_2, A_3, A_1 \cup A_2, A_1 \cup A_3, A_2 \cup A_3, \Omega\}$
+        \item $U \cap V = \phi$ and $U \cup V = \Omega$ \\
+        2 atoms: $A_1 = U, A_2 = V = U^c$ \\
+        $2^2 = 4$ elements: $\cal{F}$ $= \{\phi, A_1, A_2, \Omega\}$
+    \end{itemize}
+\end{homeworkProblem}
+
+\end{document}

@@ -1,0 +1,393 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=R,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Hw2} % Assignment title
+\newcommand{\hmwkDueDate}{July 28,\ 2014} % Due date
+\newcommand{\hmwkClass}{Probability} % Course/class
+\newcommand{\hmwkClassTime}{6:00 pm} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Instructor: Elena Kosygina} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Weiyi Chen} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{Step 1. $E(X) = 0 \Rightarrow X = 0$}
+        Given $E(X) = 0$, assume by contradiction that $X \neq 0$, then $X > 0$ according to the condition $X \ge 0$,
+        \begin{equation}
+            \operatorname{E}[X]= \int_\Omega X \, \mathrm{d}P = \int_\Omega X(\omega) P(\mathrm{d}\omega) > 0
+        \end{equation}
+        which contradicts to given condition $E(X) = 0$ since $X>0$ and $dP > 0$. Therefore, $X = 0$.
+    \end{homeworkSection}
+    \begin{homeworkSection}{Step 2. $X = 0 \Rightarrow E(X) = 0$}
+        This is directly derived from the definition, given $X=0$,
+        \begin{equation}
+            \operatorname{E}[X]= \int_\Omega X \, \mathrm{d}P = 0
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{Step 1. Discrete distribution taking only non-negative integer values}
+        When a random variable takes only values in {0, 1, 2, 3, ...} we can use the following formula for computing its expectation (even when the expectation is infinite):
+        \begin{equation}
+            \operatorname{E}[X]=\sum\limits_{i=1}^\infty P(X\geq i)
+        \end{equation}
+        \textbf{Proof.}
+        \begin{equation}
+             \sum\limits_{i=1}^\infty \mathrm{P}(X\geq i) = \sum\limits_{i=1}^\infty \sum\limits_{j=i}^\infty P(X = j)
+        \end{equation}
+        Interchanging the order of summation, we have
+        \begin{align}
+        \sum\limits_{i=1}^\infty \sum\limits_{j=i}^\infty P(X = j) &=\sum\limits_{j=1}^\infty \sum\limits_{i=1}^j P(X = j)\\
+                           &=\sum\limits_{j=1}^\infty j\, P(X = j)\\
+                           &=\operatorname{E}[X].
+        \end{align}
+    \end{homeworkSection}
+    \begin{homeworkSection}{Step 2. Prove the left part of the inequality}
+        Write $X$ as
+        \begin{equation}
+            X = \lfloor X \rfloor + (X - \lfloor X \rfloor)
+        \end{equation}
+        where $\lfloor X \rfloor$ denotes the largest integer not greater than $X$, therefore $X - \lfloor X \rfloor \ge 0$. Then using the conclusion in step 1 for discrete distribution,
+        \begin{equation}
+            \begin{split}
+                EX &= E(\lfloor X \rfloor) + E(X - \lfloor X \rfloor)  \\
+                &= \sum\limits_{n=1}^\infty P(\lfloor X \rfloor\geq n) + E(X - \lfloor X \rfloor)  \\
+                &= \sum\limits_{n=1}^\infty P(X\geq n) + E(X - \lfloor X \rfloor) \\
+                &\ge \sum\limits_{n=1}^\infty P(X\geq n)
+            \end{split}
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{Step 3. Prove the right part of the inequality}
+        Write $X$ as
+        \begin{equation}
+            X = \lceil X \rceil - (\lceil X \rceil - X)
+        \end{equation}
+        where $\lceil X \rceil$ denotes the smallest integer not less than $X$, therefore $\lceil X \rceil - X \ge 0$. Then similarly using the conclusion in step 1 for discrete distribution,
+        \begin{equation}
+            \begin{split}
+                EX &= E(\lceil X \rceil) - E(\lceil X \rceil - X)  \\
+                &= \sum\limits_{n=1}^\infty P(\lceil X \rceil\geq n) - E(\lceil X \rceil - X)  \\
+                &= \sum\limits_{n=1}^\infty P(X+1\geq n) - E(\lceil X \rceil - X) \\
+                &= \sum\limits_{n=0}^\infty P(X\geq n) - E(\lceil X \rceil - X) \\
+            \end{split}
+        \end{equation}
+        According to the condition $X \ge 0$, we can go further
+        \begin{equation}
+            \begin{split}
+                EX &= P(X\geq 0) + \sum\limits_{n=1}^\infty P(X\geq n) - E(\lceil X \rceil - X) \\
+                &= 1 + \sum\limits_{n=1}^\infty P(X\geq n) - E(\lceil X \rceil - X) \\
+                &\le 1 + \sum\limits_{n=1}^\infty P(X\geq n)
+            \end{split}
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 3
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(a)}
+        We can prove this using a form of the Cauchy-Schwarz inequality for expectation, but that would be cheating, because C-S is equivalent to this property about $\rho$. What I will in fact do is to use the same proof technique for establishing C-S to also establish this property about $\rho$.\\
+        To this end, suppose that $t$ is some real number that we will choose later, and consider the obvious inequality
+        \begin{equation}
+            E((V+tW)^2) \ge 0
+        \end{equation}
+        where $V = X-\mu_X$ and $W = Y-\mu_Y$. Expanding out the left-hand-side, and using the linearity of expectation, we find that
+        \begin{equation}
+            E(V^2) + 2tE(VW) + t^2E(W^2) \ge 0
+        \end{equation}
+        Note that the left-hand-side is just a quadratic polynomial in $t$. Now, clearly we have that
+        \begin{equation}
+            E(V^2)=\sigma_X^2, E(W^2)=\sigma_Y^2, E(VW)=Cov(X,Y) 
+        \end{equation}
+        and so, our polynomial inequality becomes
+        \begin{equation}
+            \sigma_Y^2t^2 + 2Cov(X,Y)t + \sigma_X^2 \ge 0
+        \end{equation}
+        From this inequality we find that the only way the left-hand-side could be 0 is if the polynomial has a double-root (i.e. it touches the x-axis in a single point), which could only occur if the discriminant is 0. So, the discriminant must always be negative or 0, which means that
+        \begin{equation}
+            4Cov(X,Y)^2 - 4\sigma_X^2\sigma_Y^2 \le 0
+        \end{equation}
+        In other words,
+        \begin{equation}
+            \rho^2 = \frac{Cov(X,Y)}{\sigma_X^2\sigma_Y^2} \le 1
+        \end{equation}
+        provided, of course, that the denominator does not vanish.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(b)}
+        The Cauchy-Schwarz inequality states that for all vectors x and y of an inner product space it is true that
+        \begin{equation}
+            |\langle x,y\rangle| ^2 \leq \langle x,x\rangle \cdot \langle y,y\rangle
+        \end{equation}
+        where $\langle\cdot,\cdot\rangle$ is the inner product also known as dot product, therefore,
+        \begin{equation}
+            [\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y)]^2 \leq \sum_{i=1}^n (x_i - \overline x)^2 \sum_{i=1}^n (y_i - \overline y)^2 
+        \end{equation}
+        Substituting it into the expression of $r(x,y)$, we have
+        \begin{equation}
+            \begin{split}
+                r^2(x,y) &= \frac{[\sum_{i=1}^n (x_i - \overline x)(y_i - \overline y)]^2}{(n-1)^2s^2(x)s^2(y)} \\
+                &\leq \frac{\sum_{i=1}^n (x_i - \overline x)^2 \sum_{i=1}^n (y_i - \overline y)^2} {(n-1)^2 \frac{1}{n-1}\sum_{i=1}^n (x_i - \overline x)^2 \frac{1}{n-1}\sum_{i=1}^n (y_i - \overline y)^2} \\
+                &= 1
+            \end{split}
+        \end{equation}
+        Therefore $r(x,y) \in [-1, 1]$.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 4
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(a)}
+        Since $|X| \le M$ for some constant $M$,
+        \begin{equation}
+            \lim_{n \to \infty} E(X1_{A_n}) \le \lim_{n \to \infty} E(M1_{A_n}) = M\lim_{n \to \infty} E(1_{A_n}) = M\times0 = 0
+        \end{equation}
+        On the other hand,
+        \begin{equation}
+            \lim_{n \to \infty} E(X1_{A_n}) \ge \lim_{n \to \infty} E(-M1_{A_n}) = -M\lim_{n \to \infty} E(1_{A_n}) = -M\times0 = 0
+        \end{equation}
+        Therefore,
+        \begin{equation}
+            \lim_{n \to \infty} E(X1_{A_n}) = 0
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(b)}
+        Write X as $X1_{|X|\le M}$ + $X1_{|X|>M}$, we will show that the second term goes to 0 a.s. as $M \to \infty$. \\
+        Assume by contradiction that for any constant $M > 0$, $P(|X|>M) > 0$, thus when $M \to \infty$, $|X|>M \to \infty$, 
+        \begin{equation}
+            \int_{\Omega} |X|1_{|X|>M} dp \to \infty \Rightarrow \int_{\Omega} |X| dp \to \infty
+        \end{equation}
+        which contradicts to the fact that $X$ is an integrable random variable, that is
+        \begin{equation}
+            \int_{\Omega} |X| dp < \infty
+        \end{equation}
+        Therefore we can say there exist some constant $N$, such that when $M>N$, $P(|X|>M) = 0$, which implies that
+        \begin{equation}
+            \lim_{M \to \infty} E(X1_{|X|>M}) = 0
+        \end{equation}
+        According to the dominated convergence theorem, with the condition $X$ is integrable and $|X|1_{|X|>M}$,
+        \begin{equation}
+            E(\lim_{M\to\infty} |X|1_{|X|>M}) = \lim_{M\to\infty}E(X1_{|X|>M}) = 0
+        \end{equation}
+        In part(a),
+        \begin{equation}
+            \lim_{M\to\infty}|X|1_{|X|\le M} = |X| \Rightarrow \lim_{M\to\infty}|X|1_{|X|\le M}1_{A_n} = |X|1_{A_n}
+        \end{equation}
+        Now we can apply monotone convergence theorem, with the condition $|X|1_{A_n}1_{|X|\le M}$ is increasing w.r.t M,
+        \begin{equation}
+            \begin{split}
+                E(|X|I_{A_n}) = E(\lim_{M\to\infty}|X|1_{A_n}1_{|X|\le M}) = \lim_{M\to\infty} \int_{|X| \le M}|X|1_{A_n} dp
+            \end{split}
+        \end{equation}
+        With the conclusion of part(a), we can go further with
+        \begin{equation}
+            \begin{split}
+                \lim_{n\to\infty} E(XI_{A_n}) &\le \lim_{n\to\infty} E(|X|I_{A_n}) \\
+                &= \lim_{n\to\infty} \lim_{M\to\infty}\int_{|X| \le M}|X|1_{A_n} dp \\
+                &= \lim_{M\to\infty} (\lim_{n\to\infty}\int_{|X| \le M}|X|1_{A_n} dp) \\
+                &= 0
+            \end{split}
+        \end{equation}
+        Similary we can prove $\lim_{n\to\infty} E(XI_{A_n}) \ge 0$, therefore
+        \begin{equation}
+            \lim_{n\to\infty} E(XI_{A_n}) = 0
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 5
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{Would it be reasonable to estimate p as the average of $1/N_1,1/N_2,...,1/N_k$?}
+        No. Recall the Jensen's inequality, it is generally stated in the following form: if X is a random variable and $\varphi$ is a convex function, then
+        \begin{equation}
+            \varphi(E[X]) \leq E[\varphi(X)]
+        \end{equation}
+        where in this problem, $X=N$ and $\varphi(X)=1/X$. Therefore, it is not reasonable to estimate $p$ as the average.
+    \end{homeworkSection}
+    \begin{homeworkSection}{How would you estimate p from this information?}
+        According to the strong law of large numbers, the sample average converges almost surely to the expected value
+        \begin{equation}
+            \overline{X}_n\ \xrightarrow{a.s.}\ \mu \qquad\textrm{when}\ n \to \infty
+        \end{equation}
+        That is
+        \begin{equation}
+            \Pr\!\left( \lim_{n\to\infty}\overline{X}_n = \mu \right) = 1
+        \end{equation}
+        Therefore we are able to generate a more reasonable $N$ as 
+        \begin{equation}
+            \overline N = \frac{1}{k} \sum_{n=1}^k N_n
+        \end{equation}
+        And then follow the same way in the question to estimate $p$, as
+        \begin{equation}
+            \hat p = \frac{1}{\overline N} = \frac{k}{\sum_{n=1}^k N_n}
+        \end{equation}
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+\end{document}
